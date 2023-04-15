@@ -37,6 +37,21 @@ scene.add(lightHelper, gridHelper)
 // orbit controller
 const controls = new OrbitControls(camera, renderer.domElement)
 
+// procedurally generated objects
+function addStar() {
+    const geometry = new THREE.SphereGeometry(0.25, 24, 24)
+    const material = new THREE.MeshStandardMaterial( { color: 0xffffff } )
+    const star = new THREE.Mesh( geometry, material )
+
+    // using threejs to randomly select a point on the x y z axis using an array
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ))
+
+    star.position.set(x, y, z)
+    scene.add(star)
+}
+// sets the amount of stars generated
+Array(300).fill().forEach(addStar)
+
 // animation loop function
 function animate() {
     requestAnimationFrame( animate )
