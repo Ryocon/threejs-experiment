@@ -14,6 +14,22 @@ renderer.setSize( window.innerWidth, window.innerHeight )
 camera.position.setZ(30)
 renderer.render( scene, camera )
 
+// avatar
+const ryanTexture = new THREE.TextureLoader().load('./public/images/rochimselfsmol.png')
+const ryanTextureRound = new THREE.TextureLoader().load('./public/images/rochimselfsmolroundedpng.png')
+
+const ryan = new THREE.Mesh(
+    new THREE.BoxGeometry(3,4,3),
+    new THREE.MeshBasicMaterial( { map: ryanTexture } )
+)
+
+scene.add(ryan)
+
+// const ryanSphere = new THREE.Mesh(
+//     new THREE.SphereGeometry( 15, 32, 16 ),
+//     new THREE.MeshBasicMaterial( { map: ryanTextureRound } )
+// )
+
 // shape and materials
 const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 )
 const material = new THREE.MeshStandardMaterial( { color: 0xe6aace } )
@@ -40,7 +56,8 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // procedurally generated objects
 function addStar() {
     const geometry = new THREE.SphereGeometry(0.25, 24, 24)
-    const material = new THREE.MeshStandardMaterial( { color: 0xffffff } )
+    // texture is currently my face
+    const material = new THREE.MeshStandardMaterial( { map: ryanTextureRound } )
     const star = new THREE.Mesh( geometry, material )
 
     // using threejs to randomly select a point on the x y z axis using an array
@@ -51,6 +68,11 @@ function addStar() {
 }
 // sets the amount of stars generated
 Array(300).fill().forEach(addStar)
+
+// background image
+// ! not in use
+// const backgroundTexture = new THREE.TextureLoader().load('image.jpg')
+// scene.background = backgroundTexture
 
 // animation loop function
 function animate() {
