@@ -37,13 +37,14 @@ const torus = new THREE.Mesh( geometry, material )
 
 scene.add(torus)
 
-const icoGeometry = new THREE.IcosahedronGeometry(8, 0)
+const icoGeometry = new THREE.IcosahedronGeometry(6, 0)
 const icoMaterial = new THREE.MeshStandardMaterial( { color: 0x344966 } )
 const icosahedron = new THREE.Mesh( icoGeometry, icoMaterial )
 
 scene.add(icosahedron)
 
-icosahedron.position.y = -35
+icosahedron.position.x = -30
+icosahedron.position.y = 5
 
 
 
@@ -109,9 +110,9 @@ animate()
 
 //     const t = document.body.getBoundingClientRect().top
 
-//     camera.position.x = t * -0.1
-//     camera.position.y = t * -0.002
-//     camera.position.z = t * -0.02
+//     camera.position.x = t * +0.1
+//     // camera.position.y = t * +0.09
+//     // camera.position.z = t * 0.002
 
 
 // }
