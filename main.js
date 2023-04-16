@@ -37,6 +37,16 @@ const torus = new THREE.Mesh( geometry, material )
 
 scene.add(torus)
 
+const icoGeometry = new THREE.IcosahedronGeometry(8, 0)
+const icoMaterial = new THREE.MeshStandardMaterial( { color: 0x344966 } )
+const icosahedron = new THREE.Mesh( icoGeometry, icoMaterial )
+
+scene.add(icosahedron)
+
+icosahedron.position.y = -35
+
+
+
 // lighting
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(5,5,5)
@@ -81,6 +91,11 @@ function animate() {
     torus.rotation.x += 0.01
     torus.rotation.y += 0.005
     torus.rotation.z += 0.01
+    icosahedron.rotation.x += 0.003
+    icosahedron.rotation.y += 0.005
+    icosahedron.rotation.z += 0.004
+
+    ryan.rotation.y += 0.005
 
     // updates the orbit
     controls.update()
@@ -89,3 +104,16 @@ function animate() {
 }
 
 animate()
+
+// function moveCamera() {
+
+//     const t = document.body.getBoundingClientRect().top
+
+//     camera.position.x = t * -0.1
+//     camera.position.y = t * -0.002
+//     camera.position.z = t * -0.02
+
+
+// }
+
+// document.body.onscroll = moveCamera
