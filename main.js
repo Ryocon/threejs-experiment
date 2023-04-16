@@ -15,8 +15,8 @@ camera.position.setZ(30)
 renderer.render( scene, camera )
 
 // avatar
-const ryanTexture = new THREE.TextureLoader().load('/images/rochimselfsmol.png')
-const ryanTextureRound = new THREE.TextureLoader().load('/images/rochimselfsmolroundedpng.png')
+const ryanTexture = new THREE.TextureLoader().load('./images/rochimselfsmol.png')
+const ryanTextureRound = new THREE.TextureLoader().load('./images/rochimselfsmolroundedpng.png')
 
 const ryan = new THREE.Mesh(
     new THREE.BoxGeometry(3,4,3),
